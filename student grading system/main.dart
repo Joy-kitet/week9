@@ -15,9 +15,9 @@ abstract class Student{
 }
 
 class Undergraduate extends Student {
-  List<int> assignmentScores = [30, 40, 50];
+  List<int> assignmentScores ;
 
-  Undergraduate(String name, int age, String course) : super(name, age, course);
+  Undergraduate(String name, int age, String course, this.assignmentScores) : super(name, age, course);
 
   @override
   void calculateGrade() {
@@ -59,10 +59,12 @@ if(projectScore >=80){
 
 
 void main(){
-  Undergraduate student=Undergraduate("Alice", 20, "Computer Science");
+
+  print("-------Undergraduate Student-------\n");
+  Undergraduate student=Undergraduate("Alice", 20, "Computer Science", [85, 90, 78, 92]);
   student.displayDetails();
   student.calculateGrade();
-
+print("\n-------Graduate Student-------\n");
   Graduate gradStudent =Graduate('Bob', 24, 'Data Science', 85);
   gradStudent.displayDetails();
   gradStudent.calculateGrade();
